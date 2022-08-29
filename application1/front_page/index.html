@@ -40,7 +40,7 @@
                   网络爬虫<i class="el-icon-arrow-down el-icon--right"></i>
                 </el-button>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>图片爬取</el-dropdown-item>
+                  <el-dropdown-item @click="webSpider">图片爬取</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
               <el-button type="primary">CMS识别</el-button>
@@ -63,13 +63,22 @@
       }
     },
     methods: {
+      // 匹配中文的正则
+      change_chinese(str) {
+        res = /[\u4E00-\u9FA5]/g;
+        return str.replace(res, str)
+      },
       // 退出程序
-      quit(){
+      quit() {
         pywebview.api.quit();
       },
       // 设置窗口
-      setting(obj){
-        pywebview.api.new_win(obj.target.innerHTML, 'setting');
+      setting(obj) {
+        pywebview.api.new_win(this.change_chinese(obj.target.innerHTML), 'setting');
+      },
+      // 网络爬虫
+      webSpider(obj) {
+        pywebview.api.new_win(this.change_chinese(obj.target.innerHTML), 'web_spider');
       }
     }
   })

@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21977fe8-5e58-4d3b-8813-21e1c1d4f2fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application1/backstage/com/web_spider/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/backstage/com/web_spider/web_spider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/front_page/webSpider.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application1/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/front_page/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/application1/front_page/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/front_page/css/loading.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/front_page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application1/front_page/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/front_page/js/Vue-2.6.14-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/application1/front_page/static/js/Vue-2.6.14-min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/front_page/js/Vue-2.6.14.js" beforeDir="false" afterPath="$PROJECT_DIR$/application1/front_page/static/js/Vue-2.6.14.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/front_page/js/application.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +50,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindow运行.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/Administrator/Python-integration-Tools",
     "node.js.detected.package.eslint": "true",
@@ -112,7 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661695724554</updated>
       <workItem from="1661695726173" duration="127000" />
-      <workItem from="1661695863907" duration="10422000" />
+      <workItem from="1661695863907" duration="12975000" />
     </task>
     <servers />
   </component>
@@ -131,6 +124,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_integration_Tools$application.coverage" NAME="application 覆盖结果" MODIFIED="1661747051294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application1" />
+    <SUITE FILE_PATH="coverage/Python_integration_Tools$application.coverage" NAME="application 覆盖结果" MODIFIED="1661752955661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application1" />
   </component>
 </project>

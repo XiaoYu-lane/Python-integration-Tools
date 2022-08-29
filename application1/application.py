@@ -7,8 +7,8 @@ import webview as web
 
 # 实例化flask对象
 app = Flask(__name__,
-            template_folder='front_page',
-            static_folder='front_page/static')
+            template_folder='./front_page',
+            static_folder='./front_page/static')
 
 
 # 启动信息处理
@@ -37,13 +37,13 @@ def index():
 
 
 # 网络爬虫
-@app.route('/web_spider', methods=['POST'])
+@app.route('/web_spider', methods=['GET', 'POST'])
 def web_spider():
     return render_template('/webSpider.html')
 
 
 # 设置
-@app.route('/setting', methods=['GET'])
+@app.route('/setting', methods=['GET', 'POST'])
 def setting():
     return render_template('/setting.html')
 
@@ -59,11 +59,13 @@ class Api:
         master_window.destroy()
 
     def new_win(self, name, url):    # 创建新窗口
-        child_window = web.create_window(name, url='setting',
+        child_window = web.create_window(name, url,
                                          width=600,
                                          height=400,
                                          resizable=False,
-                                         text_select=False)
+                                         text_select=True)
+
+        web.start(child_window)
 
 
 if __name__ == '__main__':
@@ -89,4 +91,4 @@ if __name__ == '__main__':
     master_window.events.shown += on_shown
     master_window.events.loaded += on_loaded
 
-    web.start(localization=chinese, debug=True)
+    web.start(localization=chinese, http_server=True, debug=True)
