@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <!-- github需要 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--引入elementui样式和组件库-->
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <title>主页</title>
 </head>
 
 <body>
   <div id="app">
     <!--      elementui 布局容器-->
     <el-container>
-      <!--         主体-->
       <div>
+        <!-- 头部 -->
+        <el-header>
+          <el-row>
+            <el-col :span="24">
+              <div class="grid-content bg-purple-dark">
+                <el-button type="text" @click="setting">设置</el-button>
+                <el-button type="text" @click="quit">退出</el-button>
+              </div>
+            </el-col>
+          </el-row>
+        </el-header>
+        <!-- 主体 -->
         <el-main>
           <div>
             <h1>欢迎使用由Moyu开发的集成web漏洞工具</h1>
@@ -35,9 +49,6 @@
           </div>
         </el-main>
       </div>
-
-      <!--         脚部-->
-      <el-footer>Footer</el-footer>
     </el-container>
 
   </div>
@@ -52,8 +63,13 @@
       }
     },
     methods: {
-      hello() {
-        alert('hello world');
+      // 退出程序
+      quit(){
+        pywebview.api.quit();
+      },
+      // 设置窗口
+      setting(obj){
+        pywebview.api.new_win(obj.target.innerHTML, 'setting');
       }
     }
   })

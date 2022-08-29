@@ -1,6 +1,10 @@
 .el-main{
     text-align: center;
+    margin: 0;
 }
 .el-button{
     margin-top: 10px;
+}
+h1{
+    margin-top: -20px;
 }

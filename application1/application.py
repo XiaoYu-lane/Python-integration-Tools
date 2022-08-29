@@ -5,6 +5,11 @@
 from flask import Flask, render_template
 import webview as web
 
+# 实例化flask对象
+app = Flask(__name__,
+            template_folder='front_page',
+            static_folder='front_page/static')
+
 
 # 启动信息处理
 def on_closed():
@@ -22,37 +27,66 @@ def on_shown():
 def on_loaded():
     print('dom读取完成')
 
-# 用flask做路由
+# 定义路由渲染模板
+# 首页
 
 
+@app.route('/')
+def index():
+    return render_template('/index.html')
+
+
+# 网络爬虫
+@app.route('/web_spider', methods=['POST'])
+def web_spider():
+    return render_template('/webSpider.html')
+
+
+# 设置
+@app.route('/setting', methods=['GET'])
+def setting():
+    return render_template('/setting.html')
 
 
 # 接口
 class Api:
-    def select_dir(self):   # 选择保存文件的目录
-        result = window.create_file_dialog(web.FOLDER_DIALOG)
+    def select_dir(self):   # 选择爬虫爬取的保存目录
+        result = master_window.create_file_dialog(web.FOLDER_DIALOG)
         print(result)
-        return result[0]
+        return result[0] if result else ''
+
+    def quit(self):     # 退出
+        master_window.destroy()
+
+    def new_win(self, name, url):    # 创建新窗口
+        child_window = web.create_window(name, url='setting',
+                                         width=600,
+                                         height=400,
+                                         resizable=False,
+                                         text_select=False)
 
 
 if __name__ == '__main__':
+    # 实例化api
+    api = Api()
     # 中文提示
     chinese = {
         'global.quitConfirmation': u'确定退出？',
     }
     # 创建程序窗口
-    window = web.create_window('集成爬虫',
-                               url='front_page',
-                               width=900,
-                               height=620,
-                               resizable=False,
-                               text_select=False,
-                               confirm_close=True)
+    master_window = web.create_window('集成爬虫',
+                                      url=app,
+                                      width=600,
+                                      height=400,
+                                      resizable=False,
+                                      text_select=False,
+                                      confirm_close=True,
+                                      js_api=api)
 
     # 添加窗口事件
-    window.events.closed += on_closed
-    window.events.closing += on_closing
-    window.events.shown += on_shown
-    window.events.loaded += on_loaded
+    master_window.events.closed += on_closed
+    master_window.events.closing += on_closing
+    master_window.events.shown += on_shown
+    master_window.events.loaded += on_loaded
 
-    web.start(localization=chinese, http_server=True, debug=True)
+    web.start(localization=chinese, debug=True)
