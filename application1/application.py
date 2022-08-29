@@ -91,4 +91,4 @@ if __name__ == '__main__':
     master_window.events.shown += on_shown
     master_window.events.loaded += on_loaded
 
-    web.start(localization=chinese, http_server=True, debug=True)
+    web.start(localization=chinese, debug=True)
