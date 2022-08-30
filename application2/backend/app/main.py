@@ -2,13 +2,18 @@
 路由和入口
 """
 # 导入
+import threading
+
 import webview as web
 from flask import Flask, render_template
-import threading as td
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
+# 静态文件夹
+template_folder = '../../frontend'
+static_folder = '../../frontend/static'
 # 创建路由以及初始化
-app = Flask(__name__, template_folder='../../frontend',
-            static_folder='../../frontend/static')
+app_index = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
+app_setting = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
 
 
 # 调试信息处理
@@ -34,19 +39,19 @@ def on_loaded():
 # 首页
 
 
-@app.route('/')
+@app_index.route('/')
 def index():
     return render_template('/index.html')
 
 # 网络爬虫
 
 
-@app.route('/web_spider')
-def web_spider():
-    return render_template('/webSpider.html')
+# @app.route('/web_spider')
+# def web_spider():
+#     return render_template('/webSpider.html')
 
 
-@app.route('/setting')
+@app_setting.route('/')
 def setting():
     return render_template('/setting.html')
 
@@ -69,8 +74,24 @@ class Api:
     def quit(self):     # 退出当前窗口
         self._window.destroy()
 
-    def minimize(self): # 最小化窗口
+    def minimize(self):     # 最小化窗口
         self._window.minimize()
+
+    def get_url(self, window):
+        print(window.get_current_url())
+
+    def create_win(self, url):
+        child_window = web.create_window('设置',
+                                         url=app_setting,
+                                         width=200,
+                                         height=300,
+                                         resizable=False,
+                                         text_select=False,
+                                         frameless=True)
+
+        # c_win = threading.Thread(target=child_window)
+        # c_win.start()
+        web.start(child_window, self.get_url(child_window))
 
 
 if __name__ == '__main__':
@@ -82,7 +103,7 @@ if __name__ == '__main__':
     }
     # 创建程序窗口
     master_window = web.create_window('集成爬虫',
-                                      url=app,
+                                      url=app_index,
                                       width=600,
                                       height=400,
                                       resizable=False,
