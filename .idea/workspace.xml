@@ -5,47 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21977fe8-5e58-4d3b-8813-21e1c1d4f2fc" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/application2/backend/venv/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/backend/venv/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/backend/venv/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/backend/venv/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/backend/venv/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/backend/venv/.idea/venv.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/static/css/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/static/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/static/js/Vue-2.6.14-min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application2/frontend/static/js/Vue-2.6.14.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application2/backend/app/setting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Python-integration-Tools.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python-integration-Tools.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/app/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/.postcssrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/check-versions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/vue-loader.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/webpack.base.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/webpack.dev.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/build/webpack.prod.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/config/dev.env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/config/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/config/prod.env.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/application2/backend/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/venv.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application2/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application2/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/src/components/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/src/router/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/frontend/static/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/frontend/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/application2/frontend/setting.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,30 +54,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ToolWindow运行.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Python-integration-Tools&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindow运行.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Administrator/Python-integration-Tools/application2/backend/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Python-integration-Tools\application2\backend\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Python-integration-Tools\application2" />
       <recent name="C:\Users\Administrator\Python-integration-Tools\application1\backstage\com" />
       <recent name="C:\Users\Administrator\Python-integration-Tools\application1\front_page\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main (1)">
+    <configuration name="1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python-integration-Tools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/application2/backend/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/application2/backend/test/1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python-integration-Tools" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,6 +147,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python-integration-Tools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/application2/backend/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/application2/backend/app/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python-integration-Tools" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,6 +193,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.1 (1)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.1" />
         <item itemvalue="Python.application" />
@@ -196,7 +216,7 @@
       <workItem from="1661759904077" duration="20386000" />
       <workItem from="1661869970907" duration="91000" />
       <workItem from="1661870140263" duration="74000" />
-      <workItem from="1661870327367" duration="1514000" />
+      <workItem from="1661870327367" duration="19886000" />
     </task>
     <servers />
   </component>
@@ -215,8 +235,10 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_integration_Tools$main.coverage" NAME="main 覆盖结果" MODIFIED="1661871119005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/app" />
+    <SUITE FILE_PATH="coverage/Python_integration_Tools$main.coverage" NAME="main 覆盖结果" MODIFIED="1661952044540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/app" />
+    <SUITE FILE_PATH="coverage/Python_integration_Tools$1__1_.coverage" NAME="1 (1) 覆盖结果" MODIFIED="1662022816053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/test" />
     <SUITE FILE_PATH="coverage/Python_integration_Tools$1.coverage" NAME="1 覆盖结果" MODIFIED="1661857262664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/test" />
+    <SUITE FILE_PATH="coverage/Python_integration_Tools$main__1_.coverage" NAME="main (1) 覆盖结果" MODIFIED="1662043971324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/app" />
     <SUITE FILE_PATH="coverage/Python_integration_Tools$application.coverage" NAME="application 覆盖结果" MODIFIED="1661755217120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application1" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,68 @@
     <!-- 引入vue和tdesign-ui库 -->
     <link rel="stylesheet" href="https://unpkg.com/tdesign-vue/dist/tdesign.min.css" />
     <script src="https://unpkg.com/vue@2.6/dist/vue.js"></script>
-    <script src="static/js/Vue-2.6.14.js"></script>
     <script src="https://unpkg.com/@vue/composition-api@1.7.0/dist/vue-composition-api.prod.js"></script>
     <script src="https://unpkg.com/tdesign-vue/dist/tdesign.min.js"></script>
-    <link rel="stylesheet" href="static/css/menu.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/ajax.js"></script>
     <title>设置</title>
 </head>
+
 <body>
-    <div>
-        
+    <div id="app">
+        <t-form preventSubmitDefault showErrorMessage :data="formData" ref="form" @submit="onSubmit"
+            :colon="true">
+            <t-form-item label="文件路径" name="folder" initialData="TDesign" readonly>
+                <t-input placeholder="请选择文件路径" :value="save_folder" />
+            </t-form-item>
+            <t-form-item>
+                <t-button variant="outline" @click="select_dir" theme="primary" ghost>选择文件夹</t-button>
+            </t-form-item>
+            <t-form-item label="获取url" name="tel" initialData="TDesign">
+                <t-input placeholder="暂无url" :value="re_url" />
+            </t-form-item>
+            <t-form-item>
+                <t-button variant="outline" @click="get_url" theme="primary" ghost>获取url</t-button>
+            </t-form-item>
+            <t-form-item style="margin-left: 100px">
+                <t-button theme="primary" type="submit" block>提交</t-button>
+            </t-form-item>
+        </t-form>
     </div>
 </body>
 <script>
     const vue = new Vue({
         el: '#app',
-        data(){
-            return {
+        data: {
+            save_folder: '',
+            re_url: ''
+        },
+        methods: {
+            select_dir() {
+                pywebview.api.select_dir().then((response) => {
+                    this.save_folder = response;
+                    console.log(this.save_folder);
 
+                })
+            },
+            get_url() {
+                pywebview.api.get_url().then((response) => {
+                    this.re_url = response;
+                    console.log(this.re_url);
+                })
+            },
+            onSubmit({ validateResult, firstError }) {
+                if (validateResult === true) {
+                    
+                } else {
+                    console.log('Errors: ', validateResult);
+                    this.$message.warning(firstError);
+                }
             }
-        }, 
-        methods:{
-
         }
     })
+
+    console.log(vue);
+
 </script>
+
 </html>

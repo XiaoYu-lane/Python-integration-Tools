@@ -2,19 +2,21 @@
 路由和入口
 """
 # 导入
-import threading
-
-import webview as web
-from flask import Flask, render_template
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from flask import Flask, render_template, request, jsonify, make_response
+from setting import *
 
 # 静态文件夹
 template_folder = '../../frontend'
 static_folder = '../../frontend/static'
 # 创建路由以及初始化
-app_index = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
-app_setting = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
-
+app_index = Flask(__name__, template_folder=template_folder,
+                  static_folder=static_folder)
+app_setting = Flask(__name__, template_folder=template_folder,
+                    static_folder=static_folder)
+app_help = Flask(__name__, template_folder=template_folder,
+                 static_folder=static_folder)
+app_edit = Flask(__name__, template_folder=template_folder,
+                 static_folder=static_folder)
 
 # 调试信息处理
 
@@ -36,24 +38,26 @@ def on_loaded():
 
 # 添加路由
 
-# 首页
-
-
-@app_index.route('/')
+@app_index.route('/')   # 首页
 def index():
+
     return render_template('/index.html')
 
-# 网络爬虫
+
+@app_index.route('/web_spider')  # 网络爬虫
+def web_spider():
+    return render_template('/webSpider.html')
 
 
-# @app.route('/web_spider')
-# def web_spider():
-#     return render_template('/webSpider.html')
-
-
-@app_setting.route('/')
+@app_setting.route('/')     # 设置窗口
 def setting():
     return render_template('/setting.html')
+
+
+@app_setting.route('/save_folder', methods=['POST'])     # 传入保存文件的路径
+def load_folder():
+    if request.method == 'POST':
+        print(request.form)
 
 
 # 主页接口
@@ -64,12 +68,10 @@ class Api:
 
     def __init__(self) -> None:
         self._window = None
+        self.child_window = None
 
     def set_window(self, window):
         self._window = window
-
-    def select_save_dir(self):   # 选择保存目录文件夹
-        pass
 
     def quit(self):     # 退出当前窗口
         self._window.destroy()
@@ -77,21 +79,38 @@ class Api:
     def minimize(self):     # 最小化窗口
         self._window.minimize()
 
-    def get_url(self, window):
-        print(window.get_current_url())
+    def create_win(self, app, other_api):  # 创建新窗口
+        self.child_window = web.create_window('设置',
+                                              url=app,
+                                              width=400,
+                                              height=500,
+                                              resizable=False,
+                                              text_select=False,
+                                              js_api=other_api)
 
-    def create_win(self, url):
-        child_window = web.create_window('设置',
-                                         url=app_setting,
-                                         width=200,
-                                         height=300,
-                                         resizable=False,
-                                         text_select=False,
-                                         frameless=True)
+        other_api.select_window(self.child_window)
 
-        # c_win = threading.Thread(target=child_window)
-        # c_win.start()
-        web.start(child_window, self.get_url(child_window))
+        web.start(self.child_window, other_api.get_url())
+
+    def url_option(self, url):  # 判断新建窗口的内容
+        # 通过传进来的url判断新建窗口返回的内容
+        if url != '':
+            if url == 'setting':
+                app = app_setting   # 路由
+                js = SettingApi()       # 接口
+                self.create_win(app, js)
+            elif url == 'help':
+                app = app_help
+                js = setting()
+                print(app)
+                self.create_win(app, js)
+            elif url == 'edit':
+                app = app_edit
+                js = setting()
+                print(app)
+                self.create_win(app, js)
+        else:
+            exit(0)
 
 
 if __name__ == '__main__':
