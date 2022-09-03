@@ -12,7 +12,6 @@ class SettingApi:
     # 选择文件夹路径
     def select_dir(self):
         result = self.window.create_file_dialog(web.FOLDER_DIALOG)
-        print(result)
         return result[0] if result else ''
 
     def get_url(self):

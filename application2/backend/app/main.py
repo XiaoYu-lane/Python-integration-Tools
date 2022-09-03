@@ -6,6 +6,7 @@ import os.path
 from flask import Flask, render_template, request, jsonify
 from setting import *
 import json
+from link import *
 
 # 静态文件夹
 template_folder = '../../frontend'
@@ -49,7 +50,6 @@ def index():
         if os.path.exists(config):
             with open('{}/config.json'.format(config), 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                print(data)
                 return data
         else:
             data = {
@@ -83,7 +83,8 @@ def load_folder():
             if not os.path.exists(config):  # 创建json文件存放保存文件路径
                 os.mkdir(config)
                 with open('{}/config.json'.format(config), 'w', encoding='utf-8') as f:
-                    json_data = {'save_folder': request.form['save_folder'], 'status': 201}
+                    json_data = {
+                        'save_folder': request.form['save_folder'], 'status': 201}
                     json.dump(json_data, f)
                     result = {
                         'save_folder': request.form['save_folder'],
@@ -93,7 +94,8 @@ def load_folder():
                     return jsonify(result)
             else:
                 with open('{}/config.json'.format(config), 'w', encoding='utf-8') as f:
-                    json_data = {'save_folder': request.form['save_folder'], 'status': 201}
+                    json_data = {
+                        'save_folder': request.form['save_folder'], 'status': 201}
                     json.dump(json_data, f)
                     result = {
                         'save_folder': request.form['save_folder'],
@@ -111,7 +113,7 @@ def load_folder():
 
 
 # 主页接口
-class Api(SettingApi):
+class Api(SettingApi, Link):
     """
     定义传入的window窗口
     """
@@ -162,6 +164,10 @@ class Api(SettingApi):
         else:
             exit(0)
 
+    def help(self):
+        webbrowser.open(
+            'https://github.com/XiaoYu-lane/Python-integration-Tools')
+
 
 if __name__ == '__main__':
     # 实例化Api类
@@ -174,7 +180,7 @@ if __name__ == '__main__':
     master_window = web.create_window('集成爬虫',
                                       url=app_index,
                                       width=600,
-                                      height=400,
+                                      height=600,
                                       resizable=False,
                                       text_select=False,
                                       confirm_close=True,

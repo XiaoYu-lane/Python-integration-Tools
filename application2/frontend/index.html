@@ -50,7 +50,7 @@
                         </t-col>
                         <t-col :span="1">
                             <div>
-                                <t-switch size="large" :label="['夜', '日']" @change="$changeTheme"></t-switch>
+                                <t-switch size="large" :label="['夜', '日']" @change="changeTheme"></t-switch>
                             </div>
                         </t-col>
                         <t-col :span="1">
@@ -70,23 +70,37 @@
 
             </t-header>
             <t-content style="width: 100%; margin-left: 5px;">
-                <t-space direction="vertical">
-                    <h1>欢迎使用MoYu-tools</h1>
-                    <t-input label="文件夹路径：" readonly placeholder="点击获取路径" :value="save_folder" @click="load_folder" />
-                    <t-divider></t-divider>
-                </t-space>
-                <t-divider></t-divider>
+
                 <t-space>
                     <t-button variant="outline" theme="primary" ghost>网络爬虫</t-button>
                     <t-button variant="outline" theme="primary" ghost>漏洞工具(开发中)</t-button>
                     <t-button variant="outline" theme="primary" ghost>信息收集工具</t-button>
                     <t-button variant="outline" theme="primary" ghost>CMS识别</t-button>
                 </t-space>
-
+                <t-divider></t-divider>
+                <t-space direction="vertical">
+                    <t-input label="文件夹路径：" readonly placeholder="点击获取路径" :value="save_folder" @click="load_folder" />
+                    <t-divider></t-divider>
+                </t-space>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </t-content>
 
             <t-footer>
-                footer
+                
+                <t-space>
+                    <t-link theme="primary" underline :prefix-icon="renderPrefixIcon" @click="footer_link">Moyu博客</t-link>
+                    <t-link theme="primary" underline :prefix-icon="renderPrefixIcon" @click="footer_link">Github</t-link>
+                    <span>软件版权归MoYu-Lane所有</span>
+                </t-space>
             </t-footer>
         </t-layout>
     </div>
@@ -94,31 +108,9 @@
 <script>
     window.onload = function () {
         // 把头部菜单栏注册为全局组件
-        Vue.component('menu-bar', {
+        Vue.component('tools-button', {
             template:
-                `<div class="tdesign-demo-item--grid menu-row">
-                    <t-row
-                        :gutter="[{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 },{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 }]">
-                        <t-col :span="2">
-                            <div>设置</div>
-                        </t-col>
-                        <t-col :span="2">
-                            <div>编辑</div>
-                        </t-col>
-                        <t-col :span="2">
-                            <div>帮助</div>
-                        </t-col>
-                        <t-col :span="2">
-                            <div>退出</div>
-                        </t-col>
-                        <t-col :span="4">
-                            <div>
-                                <t-switch size="large" :label="['开', '关']"></t-switch>
-                            </div>
-                        </t-col>
-                    </t-row>
-                    <hr>
-                </div>`
+                ``
         });
         // 使用TDesign
         Vue.use(TDesign);
@@ -127,16 +119,6 @@
         Vue.prototype.$quitWindow = function () {
 
             pywebview.api.quit();
-        }
-        // 深浅色主题切换
-        Vue.prototype.$changeTheme = function (obj) {
-
-            if (obj) {
-                document.documentElement.setAttribute('theme-mode', 'dark');
-            }
-            else {
-                document.documentElement.removeAttribute('theme-mode');
-            }
         }
         // 程序窗口最小化
         Vue.prototype.$minimize = function () {
@@ -154,6 +136,15 @@
                 }
             },
             methods: {
+                // 深浅色主题切换
+                changeTheme(obj) {
+                    if (obj) {
+                        document.documentElement.setAttribute('theme-mode', 'dark');
+                    }
+                    else {
+                        document.documentElement.removeAttribute('theme-mode');
+                    }
+                },
                 // 设置
                 setting() {
                     pywebview.api.url_option('setting');
@@ -173,8 +164,19 @@
                         })
                     })
 
+                },
+                // 链接跳转
+                footer_link(obj) {
+                    var linkName = obj.target.innerHTML;
+                    if (linkName == 'Moyu博客') {
+                        pywebview.api.blog();
+                    }
+                    else if (linkName == 'Github') {
+                        pywebview.api.github();
+                    }
                 }
             }
+
         })
     }
 
