@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21977fe8-5e58-4d3b-8813-21e1c1d4f2fc" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/application2/backend/app/setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Python-integration-Tools.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python-integration-Tools.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application2/backend/app/my_response.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application2/backend/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/application2/backend/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application2/backend/venv/.idea/venv.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/backend/app/setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/application2/backend/app/setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application2/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application2/frontend/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application2/frontend/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/application2/frontend/setting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/frontend/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/application2/frontend/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application2/frontend/static/js/ajax.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -216,7 +212,7 @@
       <workItem from="1661759904077" duration="20386000" />
       <workItem from="1661869970907" duration="91000" />
       <workItem from="1661870140263" duration="74000" />
-      <workItem from="1661870327367" duration="19886000" />
+      <workItem from="1661870327367" duration="34204000" />
     </task>
     <servers />
   </component>
@@ -238,7 +234,7 @@
     <SUITE FILE_PATH="coverage/Python_integration_Tools$main.coverage" NAME="main 覆盖结果" MODIFIED="1661952044540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/app" />
     <SUITE FILE_PATH="coverage/Python_integration_Tools$1__1_.coverage" NAME="1 (1) 覆盖结果" MODIFIED="1662022816053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/test" />
     <SUITE FILE_PATH="coverage/Python_integration_Tools$1.coverage" NAME="1 覆盖结果" MODIFIED="1661857262664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/test" />
-    <SUITE FILE_PATH="coverage/Python_integration_Tools$main__1_.coverage" NAME="main (1) 覆盖结果" MODIFIED="1662043971324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/app" />
+    <SUITE FILE_PATH="coverage/Python_integration_Tools$main__1_.coverage" NAME="main (1) 覆盖结果" MODIFIED="1662131034108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application2/backend/app" />
     <SUITE FILE_PATH="coverage/Python_integration_Tools$application.coverage" NAME="application 覆盖结果" MODIFIED="1661755217120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application1" />
   </component>
 </project>

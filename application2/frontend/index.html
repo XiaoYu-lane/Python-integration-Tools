@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="static/css/menu.css">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/index.css">
-    <script src="static/js/ajax.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <title>主页</title>
 </head>
 
@@ -33,7 +33,7 @@
                             </div>
                         </t-col>
                         <t-col :span="2">
-                            
+
                             <div>
                                 <t-button variant="outline" block @click="setting">设置</t-button>
                             </div>
@@ -63,28 +63,40 @@
                                 <t-icon name="close" @click="$quitWindow" size="large" />
                             </div>
                         </t-col>
-                        
+
                     </t-row>
                     <hr>
                 </div>
 
             </t-header>
-            <t-content>
-                <h1>欢迎使用MoYu-tools</h1>
+            <t-content style="width: 100%; margin-left: 5px;">
+                <t-space direction="vertical">
+                    <h1>欢迎使用MoYu-tools</h1>
+                    <t-input label="文件夹路径：" readonly placeholder="点击获取路径" :value="save_folder" @click="load_folder" />
+                    <t-divider></t-divider>
+                </t-space>
                 <t-divider></t-divider>
-                <t-input label="保存文件路径：" :value="save_folder" style="max-width: 1000px" auto-width />
-                <t-divider></t-divider>
-                <t-input label="url：" :value="request_url" style="max-width: 1000px" auto-width />
+                <t-space>
+                    <t-button variant="outline" theme="primary" ghost>网络爬虫</t-button>
+                    <t-button variant="outline" theme="primary" ghost>漏洞工具(开发中)</t-button>
+                    <t-button variant="outline" theme="primary" ghost>信息收集工具</t-button>
+                    <t-button variant="outline" theme="primary" ghost>CMS识别</t-button>
+                </t-space>
+
             </t-content>
-            <t-footer>Footer</t-footer>
+
+            <t-footer>
+                footer
+            </t-footer>
         </t-layout>
     </div>
 </body>
 <script>
-    // 把头部菜单栏注册为全局组件
-    Vue.component('menu-bar', {
-        template:
-            `<div class="tdesign-demo-item--grid menu-row">
+    window.onload = function () {
+        // 把头部菜单栏注册为全局组件
+        Vue.component('menu-bar', {
+            template:
+                `<div class="tdesign-demo-item--grid menu-row">
                     <t-row
                         :gutter="[{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 },{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 }]">
                         <t-col :span="2">
@@ -107,48 +119,65 @@
                     </t-row>
                     <hr>
                 </div>`
-    });
-    // 使用TDesign
-    Vue.use(TDesign);
-    // 定义全局方法，用于顶部菜单栏
-    // 退出程序
-    Vue.prototype.$quitWindow = function () {
-        
-        pywebview.api.quit();
-    }
-     // 深浅色主题切换
-    Vue.prototype.$changeTheme = function (obj) {
-       
-        if (obj) {
-            document.documentElement.setAttribute('theme-mode', 'dark');
+        });
+        // 使用TDesign
+        Vue.use(TDesign);
+        // 定义全局方法，用于顶部菜单栏
+        // 退出程序
+        Vue.prototype.$quitWindow = function () {
+
+            pywebview.api.quit();
         }
-        else {
-            document.documentElement.removeAttribute('theme-mode');
-        }
-    }
-    // 程序窗口最小化
-    Vue.prototype.$minimize = function() {
-        pywebview.api.minimize();
-    }
-    // 程序设置窗口
-    // Vue.prototype.$createNewWin = function(obj){
-    //     pywebview.api.create_win(obj.target.innerHTML);
-    // }
-    const vue = new Vue({
-        el: '#app',
-        data() {
-            return {
-                save_folder: '',
-                request_url: ''
+        // 深浅色主题切换
+        Vue.prototype.$changeTheme = function (obj) {
+
+            if (obj) {
+                document.documentElement.setAttribute('theme-mode', 'dark');
             }
-        },
-        methods: {
-            // 设置
-            setting() {
-                pywebview.api.url_option('setting');
+            else {
+                document.documentElement.removeAttribute('theme-mode');
             }
         }
-    })
+        // 程序窗口最小化
+        Vue.prototype.$minimize = function () {
+            pywebview.api.minimize();
+        }
+        // 程序设置窗口
+        // Vue.prototype.$createNewWin = function(obj){
+        //     pywebview.api.create_win(obj.target.innerHTML);
+        // }
+        const vue = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    save_folder: '',
+                }
+            },
+            methods: {
+                // 设置
+                setting() {
+                    pywebview.api.url_option('setting');
+                },
+                // 读取路径
+                load_folder() {
+                    pywebview.api.get_url().then(response => {
+                        $.post(response, (backData) => {
+                            if (backData.status == 201) {
+                                console.log(backData)
+                                this.save_folder = backData.save_folder
+                                this.$message.success({ content: '获取成功', duration: 2000 })
+                            }
+                            else {
+                                this.$message.error({ content: backData.message, duration: 2000 })
+                            }
+                        })
+                    })
+
+                }
+            }
+        })
+    }
+
 </script>
 
 </html>

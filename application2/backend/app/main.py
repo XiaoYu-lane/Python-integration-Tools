@@ -2,12 +2,16 @@
 路由和入口
 """
 # 导入
-from flask import Flask, render_template, request, jsonify, make_response
+import os.path
+from flask import Flask, render_template, request, jsonify
 from setting import *
+import json
 
 # 静态文件夹
 template_folder = '../../frontend'
 static_folder = '../../frontend/static'
+config = '../../frontend/config'
+
 # 创建路由以及初始化
 app_index = Flask(__name__, template_folder=template_folder,
                   static_folder=static_folder)
@@ -38,10 +42,28 @@ def on_loaded():
 
 # 添加路由
 
-@app_index.route('/')   # 首页
-def index():
 
-    return render_template('/index.html')
+@app_index.route('/', methods=['GET', 'POST'])   # 首页
+def index():
+    if request.method == 'POST':
+        if os.path.exists(config):
+            with open('{}/config.json'.format(config), 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                print(data)
+                return data
+        else:
+            data = {
+                'status': 366,
+                'message': 'Please select a file path'
+            }
+            return jsonify(data)
+    elif request.method == 'GET':
+        if os.path.exists(config):
+            os.remove('{}/config.json'.format(config))
+            os.rmdir(config)
+            return render_template('/index.html')
+        else:
+            return render_template('/index.html')
 
 
 @app_index.route('/web_spider')  # 网络爬虫
@@ -57,11 +79,39 @@ def setting():
 @app_setting.route('/save_folder', methods=['POST'])     # 传入保存文件的路径
 def load_folder():
     if request.method == 'POST':
-        print(request.form)
+        if request.form['save_folder'] != '':
+            if not os.path.exists(config):  # 创建json文件存放保存文件路径
+                os.mkdir(config)
+                with open('{}/config.json'.format(config), 'w', encoding='utf-8') as f:
+                    json_data = {'save_folder': request.form['save_folder'], 'status': 201}
+                    json.dump(json_data, f)
+                    result = {
+                        'save_folder': request.form['save_folder'],
+                        'status': 201,
+                        'message': 'select success'
+                    }
+                    return jsonify(result)
+            else:
+                with open('{}/config.json'.format(config), 'w', encoding='utf-8') as f:
+                    json_data = {'save_folder': request.form['save_folder'], 'status': 201}
+                    json.dump(json_data, f)
+                    result = {
+                        'save_folder': request.form['save_folder'],
+                        'status': 201,
+                        'message': 'select success'
+                    }
+                    return jsonify(result)
+
+        else:
+            result = {
+                'status': 400,
+                'message': 'unknown error'
+            }
+            return jsonify(result)
 
 
 # 主页接口
-class Api:
+class Api(SettingApi):
     """
     定义传入的window窗口
     """
@@ -140,5 +190,6 @@ if __name__ == '__main__':
 
     # 将上面创建的window对象再通过函数传给实例化后的api对象
     api.set_window(master_window)
+    api.select_window(master_window)
 
     web.start(localization=chinese, debug=True)

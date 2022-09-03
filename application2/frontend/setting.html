@@ -10,22 +10,25 @@
     <script src="https://unpkg.com/vue@2.6/dist/vue.js"></script>
     <script src="https://unpkg.com/@vue/composition-api@1.7.0/dist/vue-composition-api.prod.js"></script>
     <script src="https://unpkg.com/tdesign-vue/dist/tdesign.min.js"></script>
-    <script src="static/js/ajax.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <title>设置</title>
 </head>
 
 <body>
     <div id="app">
-        <t-form preventSubmitDefault showErrorMessage :data="formData" ref="form" @submit="onSubmit"
-            :colon="true">
+        <t-form preventSubmitDefault showErrorMessage :data="formData" ref="form" @submit="onSubmit" :colon="true">
             <t-form-item label="文件路径" name="folder" initialData="TDesign" readonly>
                 <t-input placeholder="请选择文件路径" :value="save_folder" />
             </t-form-item>
             <t-form-item>
-                <t-button variant="outline" @click="select_dir" theme="primary" ghost>选择文件夹</t-button>
+                <!-- <t-button variant="outline"   ></t-button> -->
+                <t-button variant="outline" @click="select_dir" theme="primary" ghost>
+                    <cloud-upload-icon slot="icon" />
+                    选择文件夹
+                  </t-button>
             </t-form-item>
             <t-form-item label="获取url" name="tel" initialData="TDesign">
-                <t-input placeholder="暂无url" :value="re_url" />
+                <t-input placeholder="暂无url" :value="url" />
             </t-form-item>
             <t-form-item>
                 <t-button variant="outline" @click="get_url" theme="primary" ghost>获取url</t-button>
@@ -41,7 +44,7 @@
         el: '#app',
         data: {
             save_folder: '',
-            re_url: ''
+            url: ''
         },
         methods: {
             select_dir() {
@@ -53,16 +56,25 @@
             },
             get_url() {
                 pywebview.api.get_url().then((response) => {
-                    this.re_url = response;
-                    console.log(this.re_url);
+                    this.url = response;
+                    console.log(this.url);
                 })
             },
             onSubmit({ validateResult, firstError }) {
                 if (validateResult === true) {
-                    
+                    $.ajax({
+                        url: this.url + 'save_folder',
+                        type: 'post',
+                        data: {
+                            save_folder: this.save_folder
+                        },
+                        success: (backData) => {
+                            this.$message.success({ content: backData.message, duration: 2000 });
+                        }
+                    })
                 } else {
                     console.log('Errors: ', validateResult);
-                    this.$message.warning(firstError);
+                    this.$message.warning({ content: backData.message, duration: 2000 });
                 }
             }
         }

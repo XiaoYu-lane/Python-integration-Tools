@@ -5,8 +5,6 @@ import webview as web
 
 
 class SettingApi:
-    def __init__(self) -> None:
-        self.window = None
 
     def select_window(self, window):
         self.window = window
@@ -19,5 +17,4 @@ class SettingApi:
 
     def get_url(self):
         current_url = self.window.get_current_url()
-        print(current_url)
         return current_url
